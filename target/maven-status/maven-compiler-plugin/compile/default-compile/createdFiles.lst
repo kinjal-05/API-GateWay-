@@ -1,4 +1,6 @@
 APIGateWayService\apigateway\ApiGatewayApplication.class
+APIGateWayService\apigateway\security\JwtServerAuthenticationConverter.class
 APIGateWayService\apigateway\security\JwtAuthenticationFilter.class
 APIGateWayService\apigateway\security\JwtService.class
+APIGateWayService\apigateway\security\JwtReactiveAuthenticationManager.class
 APIGateWayService\apigateway\security\SecurityConfig.class

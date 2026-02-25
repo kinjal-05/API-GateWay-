@@ -24,8 +24,9 @@ public class SecurityConfig {
 		jwtAuthFilter.setServerAuthenticationConverter(new JwtServerAuthenticationConverter(jwtService));
 
 		http.csrf().disable().authorizeExchange(exchanges -> exchanges
-				.pathMatchers("/api/auth/register", "/api/auth/login", "/api/auth/refresh-token").permitAll()
-				.pathMatchers("/api/auth/me/**").authenticated().pathMatchers("/api/auth/users/**").hasRole("ADMIN")
+				.pathMatchers("/api/auth/register", "/api/auth/login", "/api/auth/refresh-token", "/notifications/**")
+				.permitAll().pathMatchers("/api/auth/me/**").authenticated().pathMatchers("/api/auth/users/**")
+				.hasRole("ADMIN")
 				.pathMatchers("/api/categories/v1/creatCategory/**", "/api/categories/v1/getById/**",
 						"/api/categories/v1/updateById/**", "/api/categories/v1/deleteById/**",
 						"/api/products/addProducts/**", "/api/products/updateById/**", "/api/products/deleteById/**",

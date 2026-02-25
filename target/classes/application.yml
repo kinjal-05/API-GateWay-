@@ -5,16 +5,22 @@ spring:
   cloud:
     gateway:
       routes:
-        
+
         - id: user-service
           uri: http://localhost:8087
           predicates:
             - Path=/api/auth/**    # for user management endpoints
+
         - id: product-service
           uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/api/categories/v1/**,/api/products/**,/api/product-images/v1/**
-          
+
+        - id: notification-service
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/notifications/**
+
 eureka:
   client:
     service-url:
